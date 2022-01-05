@@ -4,10 +4,12 @@ for i in range(10):
     for j in range(10):
         if i == j:
             continue
-        num_str = (str(i)+str(j))
-        num_str_rev = (str(j)+str(i))
-        if num_str_rev in list_num:
+        num_pair = i, j
+        num_pair_rev = j, i
+        if num_pair_rev in list_num:
             continue
-        list_num.append(num_str)
-print((("{}, ") * ((len(list_num)) - 1)).format(*list_num[:-1]), end="")
-print(89)
+        list_num.append(num_pair)
+        if i == 8 and j == 9:
+            continue
+        print("{}{}, ".format(i, j), end="")
+print("{}{}".format(8, 9))
