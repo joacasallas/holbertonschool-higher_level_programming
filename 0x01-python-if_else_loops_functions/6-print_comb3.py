@@ -9,4 +9,5 @@ for i in range(10):
         if num_str_rev in list_num:
             continue
         list_num.append(num_str)
-print(", ".join(list_num))
+print((("{}, ") * ((len(list_num)) - 1)).format(*list_num[:-1]), end="")
+print(89)
