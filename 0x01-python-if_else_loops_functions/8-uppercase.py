@@ -1,4 +1,9 @@
-#!/usr/bin/python3
 def uppercase(str):
-    str2 = str.upper()
-    print("{}".format(str2))
+    for i in str:
+        if ord(i) in range(97, 123):
+            ascci_code = (ord(i)-32)
+            character = chr(ascci_code)
+        else:
+            character = i
+        print("{}".format(character), end="")
+    print("")
