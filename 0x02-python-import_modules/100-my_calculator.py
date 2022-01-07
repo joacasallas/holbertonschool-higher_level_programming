@@ -19,4 +19,4 @@ if __name__ == "__main__":
         else:
             print("Unknown operator. Available operators: +, -, * and /")
             exit(1)
-        print("{} + {} = {}".format(a, b, op))
+        print("{} {} {} = {}".format(a, sys.argv[2], b, op))
