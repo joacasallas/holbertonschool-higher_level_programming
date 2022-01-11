@@ -1,12 +1,10 @@
-#include <python.h>
+#include <Python.h>
 
 /**
  * print_python_list_into - prints some basic info about Python lists.
  * @p: object
  * Return: Nohing
  */
-
-#include <Python.h>
 
 void print_python_list_info(PyObject *p)
 {
