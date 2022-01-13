@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
-    if len(roman_string) < 1:
+    if len(roman_string) < 1 or roman_string is None:
         return None
     dictionary = {
         'I': 1, 'V': 5, 'X': 10,
