@@ -4,6 +4,8 @@ def roman_to_int(roman_string):
         return None
     if type(roman_string) is int:
         return None
+    if roman_string and type(roman_string) is int:
+        return None
     dictionary = {
         'I': 1, 'V': 5, 'X': 10,
         'L': 50, 'C': 100, 'D': 500,
