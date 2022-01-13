@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/python3
 def complex_delete(a_dictionary, value):
     new_dictionary = {}
     for key in a_dictionary:
