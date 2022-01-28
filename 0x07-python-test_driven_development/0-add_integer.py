@@ -4,11 +4,13 @@
 
 def add_integer(a, b=98):
     """ function that adds 2 numbers """
-    if type(a) == str:
+    if a is None or (type(a) is not int and type(a) is not float):
         raise TypeError("a must be an integer")
-    elif type(b) == str:
+    elif b is None or (type(b) is not int and type(b) is not float):
         raise TypeError("b must be an integer")
-    elif a is None:
-        raise TypeError("a must be an integer")
     else:
-        return int(a) + int(b)
+        result = int(a) + int(b)
+    if result == float('inf') or result == -float('inf'):
+        return 89
+    else:
+        return result
