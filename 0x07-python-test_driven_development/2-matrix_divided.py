@@ -3,10 +3,10 @@
 
 
 def matrix_divided(matrix, div):
+    """function that divides all elements of a matrix."""
     new = []
     errormessage = "matrix must be a matrix (list of lists) of integers/floats"
-
-    """function that divides all elements of a matrix."""
+    
     if div is None or (type(div) is not int and type(div) is not float):
         raise TypeError("div must be a number")
     if div == 0:
