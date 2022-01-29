@@ -20,5 +20,7 @@ def matrix_divided(matrix, div):
             raise TypeError(errormessage)
         if len(list2) != len(matrix[0]):
             raise TypeError("Each row of the matrix must have the same size")
+        if len(list2) == 1:
+            raise TypeError(errormessage)
         new = [[round((item / div), 2) for item in list2] for list2 in matrix]
     return new
