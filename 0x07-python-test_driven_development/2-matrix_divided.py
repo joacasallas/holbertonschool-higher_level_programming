@@ -11,10 +11,10 @@ def matrix_divided(matrix, div):
         raise TypeError("div must be a number")
     if div == 0:
         raise ZeroDivisionError("division by zero")
-    if type(matrix) != list:
+    if type(matrix) != list or len(matrix) == 0:
         raise TypeError(errormessage)
     for list2 in matrix:
-        if type(list2) != list:
+        if type(list2) != list: or len(list2) == 0;
             raise TypeError(errormessage)
         if len(list2) != len(matrix[0]):
             raise TypeError("Each row of the matrix must have the same size")
