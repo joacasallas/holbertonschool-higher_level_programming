@@ -6,13 +6,13 @@ def matrix_divided(matrix, div):
     """function that divides all elements of a matrix."""
     new = []
     errormessage = "matrix must be a matrix (list of lists) of integers/floats"
-    
+
     if div is None or (type(div) is not int and type(div) is not float):
         raise TypeError("div must be a number")
     if div == 0:
         raise ZeroDivisionError("division by zero")
     if len(matrix) == 1:
-            raise TypeError(errormessage)
+        raise TypeError(errormessage)
     if type(matrix) != list or len(matrix) == 0:
         raise TypeError(errormessage)
     for list2 in matrix:
