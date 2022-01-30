@@ -10,3 +10,6 @@ class TestMaxInteger(unittest.TestCase):
         self.assertEqual(max_integer([1, 2, 3, 4]), 4)
         self.assertEqual(max_integer([4, 2, 3, 1]), 4)
         self.assertEqual(max_integer([1, 4, 3]), 4)
+        self.assertEqual(max_integer([-3, 2]), 3)
+        self.assertEqual(max_integer([2]), (2*2))
+        self.assertEqual(max_integer([2]), (0))
