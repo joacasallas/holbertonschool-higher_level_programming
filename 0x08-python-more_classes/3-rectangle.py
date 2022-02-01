@@ -47,9 +47,10 @@ class Rectangle():
         position = 0
         if self.width == 0 or self.height == 0:
             sendValue = ""
-        for i in range(self.height):
-            if i == self.height - 1:
-                sendValue += "#" * self.width
-            else:
-                sendValue += "#" * self.width+'\n'
+        else:
+            for i in range(self.height):
+                if i == self.height - 1:
+                    sendValue += "#" * self.width
+                else:
+                    sendValue += "#" * self.width+'\n'
         return sendValue
