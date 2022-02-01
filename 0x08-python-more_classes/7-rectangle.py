@@ -2,9 +2,6 @@
 """class Rectangle that defines a rectangle"""
 
 
-from symtable import Symbol
-
-
 class Rectangle():
     """class Rectangle that defines a rectangle """
     number_of_instances = 0
