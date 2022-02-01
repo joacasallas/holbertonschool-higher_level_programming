@@ -1,11 +1,10 @@
 #!/usr/bin/python3
-""" class Rectangle that defines a rectangle """
+""" class Rectangle that defines a rectangle"""
 
 
 class Rectangle():
-    """ class Rectangle that defines a rectangle """
+    """ class Rectangle that defines a rectangle"""
     def __init__(self, width=0, height=0):
-        """initialization object"""
         self.width = width
         self.height = height
 
@@ -53,3 +52,6 @@ class Rectangle():
                 else:
                     sendValue += "#" * self.width+'\n'
         return sendValue
+
+    def __repr__(self):
+        return "Rectangle({}, {})".format(self.width, self.height)
