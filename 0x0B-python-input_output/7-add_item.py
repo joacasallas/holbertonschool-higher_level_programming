@@ -1,19 +1,19 @@
 #!/usr/bin/python3
-"""Modulo en el cual se importan funciones
-ajenas"""
+"""import modulo"""
+import json
 import sys
 
-load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
-save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
+save_to_json_file = __import__("5-save_to_json_file").save_to_json_file
+load_from_json_file = __import__("6-load_from_json_file").load_from_json_file
+read_file = __import__("0-read_file").read_file
+
+filename = "add_item.json"
+li = []
 
 try:
-    lista = load_from_json_file("add_item.json")
+    li = load_from_json_file(filename)
 except Exception:
-    lista = []
-
-argc = len(sys.argv)
-
-if argc > 1:
-    for iterador in range(1, argc):
-        lista.append(sys.argv[iterador])
-save_to_json_file(lista, "add_item.json")
+    li = []
+for i in sys.argv[1:]:
+    li.append(i)
+save_to_json_file(li, filename)
