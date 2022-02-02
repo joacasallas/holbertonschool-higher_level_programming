@@ -1,23 +1,23 @@
 #!/usr/bin/python3
-""" My class module
-"""
+"""Modulo estudiante"""
 
-class MyClass:
-    """ My class
-    """
 
-    score = 0
+class Student():
+    """Se crea la clase estudian y se define"""
 
-    def __init__(self, name, number = 4):
-        self.__name = name
-        self.number = number
-        self.is_team_red = (self.number % 2) == 0
+    def __init__(self, first_name, last_name, age):
+        """Instanciacion"""
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
 
-    def win(self):
-        self.score += 1
-
-    def lose(self):
-        self.score -= 1
-
-    def __str__(self):
-        return "[MyClass] {} - {:d} => {:d}".format(self.__name, self.number, self.score)
+    def to_json(self, attrs=None):
+        """Returna una representacion en diccionario"""
+        diccionario = dict()
+        if attrs is None:
+            return self.__dict__
+        else:
+            for iterador in attrs:
+                if iterador in self.__dict__:
+                    diccionario[iterador] = self.__dict__[iterador]
+            return (diccionario)
