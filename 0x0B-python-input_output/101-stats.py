@@ -1,51 +1,42 @@
 #!/usr/bin/python3
+"""
+Module for log parsing scripts.
+"""
+
 
 import sys
-from signal import signal, SIGINT
 
 
-count, file_size = 0, 0
-allowed_codes = {
-    '200': 0, '301': 0, '400': 0, '401': 0,
-    '403': 0, '404': 0, '405': 0, '500': 0
-}
+if __name__ == "__main__":
+    size = [0]
+    codes = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
 
+    def check_match(line):
+        '''Checks for regexp match in line.'''
+        try:
+            line = line[:-1]
+            words = line.split(" ")
+            size[0] += int(words[-1])
+            code = int(words[-2])
+            if code in codes:
+                codes[code] += 1
+        except:
+            pass
 
-def ten_times():
-
-    print("File size: {:d}".format(file_size))
-
-    for key in sorted(allowed_codes.keys()):
-        val = allowed_codes.get(key)
-        if val != 0:
-            print("{}: {:d}".format(key, val))
-
-
-def handler(signal_received, frame):
-    ten_times()
-    sys.exit(0)
-
-for line in sys.stdin:
-
-    signal(SIGINT, handler)
-
-    if count == 10:
-        ten_times()
-        count = 0
-
-    split_line = line.split()
+    def print_stats():
+        '''Prints accumulated statistics.'''
+        print("File size: {}".format(size[0]))
+        for k in sorted(codes.keys()):
+            if codes[k]:
+                print("{}: {}".format(k, codes[k]))
+    i = 1
     try:
-        if split_line[-2] and split_line[-2] in allowed_codes.keys():
-            allowed_codes[split_line[-2]] += 1
-    except:
-        pass
-
-    try:
-        size = int(split_line[-1])
-        file_size += size
-    except:
-        pass
-
-    count += 1
-
-ten_times()
+        for line in sys.stdin:
+            check_match(line)
+            if i % 10 == 0:
+                print_stats()
+            i += 1
+    except KeyboardInterrupt:
+        print_stats()
+        raise
+    print_stats()
