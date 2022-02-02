@@ -1,10 +1,9 @@
 #!/usr/bin/python3
-"""method for student creation"""
+"""Creates a student class"""
 
 
-class Student:
-    """Student obj, interesting how you don't have to directly
-    test for strings in a loop, python is weird"""
+class Student ():
+    """Creates a student class"""
 
     def __init__(self, first_name, last_name, age):
         self.first_name = first_name
@@ -12,10 +11,19 @@ class Student:
         self.age = age
 
     def to_json(self, attrs=None):
+
+        new_dict = {}
+
         if attrs is None:
             return self.__dict__
-        new_dictionary = {}
-        for key, value in self.__dict__.items():
-            if key in attrs:
-                new_dictionary[key] = value
-        return new_dictionary
+
+        for attr in attrs:
+            if attr in self.__dict__.keys():
+                new_dict[attr] = self.__dict__[attr]
+
+        return new_dict
+
+    def reload_from_json(self, json):
+
+        for key, value in json.items():
+            setattr(self, key, value)
