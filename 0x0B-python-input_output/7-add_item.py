@@ -1,20 +1,19 @@
 #!/usr/bin/python3
-"""that adds all arguments to a Python list"""
-
-
+"""Modulo en el cual se importan funciones
+ajenas"""
 import sys
 
-save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
 load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
-
-arglist = list(sys.argv[1:])
+save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
 
 try:
-    json_list = load_from_json_file('add_item.json')
-
+    lista = load_from_json_file("add_item.json")
 except Exception:
-    json_list = []
+    lista = []
 
-json_list.extend(arglist)
+argc = len(sys.argv)
 
-save_to_json_file(json_list, 'add_item.json')
+if argc > 1:
+    for iterador in range(1, argc):
+        lista.append(sys.argv[iterador])
+save_to_json_file(lista, "add_item.json")
