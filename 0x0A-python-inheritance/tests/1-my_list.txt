@@ -1,3 +1,6 @@
+Module: print_sorted
+Write a class MyList that inherits from list
+
 >>> MyList = __import__('1-my_list').MyList
 >>> mylist = MyList()
 >>> isinstance(mylist, list)
@@ -12,6 +15,11 @@ True
 >>> mylist.print_sorted()
 [1, 3, 6]
 
+:: with zero values
+>>> mylist.append(0)
+>>> mylist.print_sorted()
+[0, 1, 3, 6]
+
 :: with infinite integer
 >>> mylist.append(int("inf"))
 Traceback (most recent call last):
@@ -21,7 +29,7 @@ ValueError: invalid literal for int() with base 10: 'inf'
 ::with negative numbers
 >>> mylist.append(-8)
 >>> mylist.print_sorted()
-[-8, 1, 3, 6]
+[-8, 0, 1, 3, 6]
 
 ::when repeat an element
 >>> mylist.append(-8)
@@ -29,7 +37,22 @@ ValueError: invalid literal for int() with base 10: 'inf'
 >>> mylist.append(3)
 >>> mylist.append(6)
 >>> mylist.print_sorted()
-[-8, -8, 1, 1, 3, 3, 6, 6]
+[-8, -8, 0, 1, 1, 3, 3, 6, 6]
+
+:: when all elements in the list are the same
+>>> mylist.clear()
+>>> mylist.append(5)
+>>> mylist.append(5)
+>>> mylist.append(5)
+>>> mylist.append(5)
+>>> mylist.append(5)
+>>> mylist.print_sorted()
+[5, 5, 5, 5, 5]
+
+::with a max integer:
+>>> mylist.append(10000000000000000000000000000000000000000000)
+>>> mylist.print_sorted()
+[5, 5, 5, 5, 5, 10000000000000000000000000000000000000000000]
 
 ::with None value
 >>> mylist.append(None)

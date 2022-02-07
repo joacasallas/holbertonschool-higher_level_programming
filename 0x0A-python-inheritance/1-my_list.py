@@ -4,6 +4,7 @@
 
 class MyList(list):
     """class MyList that inherits from list"""
+    pass
 
     def print_sorted(self):
         """method to order list"""
