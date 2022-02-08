@@ -11,5 +11,5 @@ def read_file(filename=""):
             print()
             file.close()
     except FileNotFoundError:
-        print("[Errno 2] No such file or directory: '{}'".format(filename))
+        print("FileNotFoundError: [Errno 2] No such file or directory: '{}'".format(filename))
         exit()
