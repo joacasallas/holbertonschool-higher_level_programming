@@ -1,30 +1,17 @@
 #!/usr/bin/python3
-"""
-Definning a class Student.
-"""
+"""Write a class Student that defines a student by"""
 
 
 class Student:
-    """
-    Student representation.
-    """
-
+    """Write a class Student that defines a student by"""
     def __init__(self, first_name, last_name, age):
-        """
-        Initializing student class.
-        Arguments:
-            first_name (str): Student's first name.
-            last_name  (str): Student's Last name.
-            age       (int): Student's age.
-        """
+        """Write a class Student that defines a student by"""
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self, attrs=None):
-        """
-        dictionary Student's representation.
-        """
+        """Write a class Student that defines a student by"""
         if (type(attrs) == list and
                 all(type(ele) == str for ele in attrs)):
             return {k: getattr(self, k) for k in attrs if hasattr(self, k)}
