@@ -1,55 +1,27 @@
 #!/usr/bin/python3
-""" Check """
+""" 2-main """
 from models.rectangle import Rectangle
 
-r = Rectangle(10, 12)
+if __name__ == "__main__":
 
-try:    
-    r.y = "12"
-    print("TypeError exception not raised")
-    exit(1)
-except TypeError as e:
-    if str(e) != "y must be an integer":
-        print("Wrong exception message: {}".format(e))
-        exit(1)
-except Exception as e:
-    print("Wrong exception: [{}] {}".format(type(e), e))
-    exit(1)
+    try:
+        Rectangle(10, "2")
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
 
-try:
-    r.y = [13]
-    print("TypeError exception not raised")
-    exit(1)
-except TypeError as e:
-    if str(e) != "y must be an integer":
-        print("Wrong exception message: {}".format(e))
-        exit(1)
-except Exception as e:
-    print("Wrong exception: [{}] {}".format(type(e), e))
-    exit(1)
+    try:
+        r = Rectangle(10, 2)
+        r.width = -10
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
 
-try:
-    r.y = 13.12
-    print("TypeError exception not raised")
-    exit(1)
-except TypeError as e:
-    if str(e) != "y must be an integer":
-        print("Wrong exception message: {}".format(e))
-        exit(1)
-except Exception as e:
-    print("Wrong exception: [{}] {}".format(type(e), e))
-    exit(1)
+    try:
+        r = Rectangle(10, 2)
+        r.x = {}
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
 
-try:
-    r.y = { 'id': 12 }
-    print("TypeError exception not raised")
-    exit(1)
-except TypeError as e:
-    if str(e) != "y must be an integer":
-        print("Wrong exception message: {}".format(e))
-        exit(1)
-except Exception as e:
-    print("Wrong exception: [{}] {}".format(type(e), e))
-    exit(1)
-
-print("OK", end="")
+    try:
+        Rectangle(10, 2, 3, -1)
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
