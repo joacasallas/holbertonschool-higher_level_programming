@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """first class"""
 
-
 import json
 
 
@@ -42,3 +41,13 @@ class Base():
             return []
         else:
             return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """returns an instance with all attributes already set"""
+        if cls.__name__ == "Rectangle":
+            dummy = cls(9, 8)
+            if cls.__name__ == "Square":
+                dummy = cls(9)
+            dummy.update(**dictionary)
+            return dummy
