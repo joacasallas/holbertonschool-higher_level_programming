@@ -1,0 +1,16 @@
+#!/usr/bin/python3
+"""Write the class Square that inherits from Rectangle"""
+
+
+from models.rectangle import Rectangle
+"""importing class rectangle"""
+
+
+class Square(Rectangle):
+    """class to print a square with '#'"""
+    def __init__(self, size, x=0, y=0, id=None):
+        super().__init__(id=id, x=x, y=y, width=size, height=size)
+
+    def __str__(self):
+        return "[Square] ({}) {}/{} - {}".format(
+            self.id, self.x, self.y, self.width)
