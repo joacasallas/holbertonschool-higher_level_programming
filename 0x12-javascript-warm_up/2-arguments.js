@@ -1,8 +1,4 @@
 #!/usr/bin/node
-/*process.argv.forEach((val, index) => {
-    console.log(index)
-});*/
-
 let i = 0;
 for (; i < process.argv.length; i++){
 }
