@@ -4,11 +4,11 @@ let i = 0;
 let mayor = 0;
 let submayor = 0;
 for (; process.argv[i] != null; i++) {
-  if (process.argv[i] > mayor) {
+  if (Number(process.argv[i]) > mayor) {
     submayor = mayor;
-    mayor = process.argv[i];
-  } else if (process.argv[i] > submayor) {
-    submayor = process.argv[i];
+    mayor = Number(process.argv[i]);
+  } else if (Number(process.argv[i]) > submayor) {
+    submayor = Number(process.argv[i]);
   }
 }
 if (i === 2 || i === 3) {
