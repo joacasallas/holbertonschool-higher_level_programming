@@ -16,14 +16,15 @@ module.exports = class Rectangle {
 
   double () {
     this.width = (this.width * 2);
+    this.height = (this.height * 2);
     for (let i = 0; i < this.height; i++) {
       console.log('X'.repeat(this.width));
     }
   }
 
   rotate () {
-    const aux = this.height * 2;
-    this.height = this.width / 2;
+    const aux = this.height;
+    this.height = this.width;
     this.width = aux;
     for (let i = 0; i < this.height; i++) {
       console.log('X'.repeat(this.width));
