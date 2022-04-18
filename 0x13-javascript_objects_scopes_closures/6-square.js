@@ -6,6 +6,18 @@ module.exports = class Square extends require('./5-square') {
     this.size = size;
   }
 
+  double () {
+    super.double();
+  }
+
+  rotate () {
+    super.rotate();
+  }
+
+  print () {
+    super.print();
+  }
+
   charPrint (c) {
     if (c === undefined) {
       c = 'X';
